@@ -34,4 +34,5 @@ public class User {
         }
         return result;
     }
+}
  //fim da class
