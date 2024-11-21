@@ -48,6 +48,8 @@ public boolean verificarUsuario(String login, String senha) {
     return result;
 }
 
+
+!
 Os recursos Connection, Statement e ResultSet devem ser fechados para evitar vazamento de recursos.
 
 5 - Adicionei e.printStackTrace(); dentro dos blocos catch para permitir a saída de mensagens de erro.
