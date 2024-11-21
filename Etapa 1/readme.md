@@ -18,13 +18,13 @@ Provavelmente ocorreu um erro de digitação, pois none não é uma coluna. O co
 
 **3 - Concatenação insegura de strings para SQL ***(Linhas)***:**
 
-DE: >sql += "where login = " + " ` " + login + " ` ";
-sql += " and senha = " + " ` " + senha + " `; ";
+DE: `sql += "where login = " + " ' " + login + " ' ";`
+`sql += " and senha = " + " ' " + senha + " '; ";`
 
-PARA: >`String sql = "SELECT nome FROM usuarios WHERE login = ? AND senha = ?";
-PreparedStatement st = conn.prepareStatement(sql);
-st.setString(1, login);
-st.setString(2, senha);`
+PARA: `String sql = "SELECT nome FROM usuarios WHERE login = ? AND senha = ?";`
+`PreparedStatement st = conn.prepareStatement(sql);`
+`st.setString(1, login);`
+`st.setString(2, senha);`
 
 Usar PreparedStatement com parâmetros evita o problema de SQL Injection.
 Tambem adicionei a importação "import java.sql.PreparedStatement;" para o pacote java.sql.
