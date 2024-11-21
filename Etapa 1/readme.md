@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 ##ETAPA 1
-=======
-*ETAPA 1*:
->>>>>>> 960fb8f8d4b6506735fb5f501a3aaf97629e1b0d
 Dentro do seu repositório, crie um Readme explicando os erros encontrados;
+
+=======
 
 1 - Classe do Driver incorreta:
 DE: Class.forName("com.mysql.Driver.Manager").newInstance();
