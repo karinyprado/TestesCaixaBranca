@@ -1,4 +1,5 @@
-// Dentro do seu repositório, crie um Readme explicando os erros encontrados;
+##ETAPA 1
+Dentro do seu repositório, crie um Readme explicando os erros encontrados;
 
 1 - Classe do Driver incorreta:
 DE: Class.forName("com.mysql.Driver.Manager").newInstance();
@@ -49,7 +50,6 @@ public boolean verificarUsuario(String login, String senha) {
 }
 
 
-!
 Os recursos Connection, Statement e ResultSet devem ser fechados para evitar vazamento de recursos.
 
 5 - Adicionei e.printStackTrace(); dentro dos blocos catch para permitir a saída de mensagens de erro.
