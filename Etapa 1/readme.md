@@ -1,4 +1,4 @@
-*ETAPA 1*
+*ETAPA 1*:
 Dentro do seu repositório, crie um Readme explicando os erros encontrados;
 
 1 - Classe do Driver incorreta:
