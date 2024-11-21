@@ -19,7 +19,7 @@ public class User {
     public boolean result = false;
     public boolean verificarUsuario(String login, String senha) {
         String sql = "SELECT nome FROM usuarios WHERE login = ? AND senha = ?";
-        try (Connection conn = conectarBD();
+        try s(Connection conn = conectarBD();
             PreparedStatement st = conn.prepareStatement(sql)) {
             st.setString(1, login);
             st.setString(2, senha);
