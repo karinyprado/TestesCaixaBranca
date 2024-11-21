@@ -1,15 +1,14 @@
-// Dentro do seu repositório, crie um Readme explicando os erros encontrados;
+*ETAPA 1*
+Dentro do seu repositório, crie um Readme explicando os erros encontrados;
 
 1 - Classe do Driver incorreta:
 DE: Class.forName("com.mysql.Driver.Manager").newInstance();
-
 PARA: Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
 A classe para o driver MySQL JDBC deve ser "com.mysql.cj.jdbc.Driver" em vez de "com.mysql.Driver.Manager".
 
 2 - Instrução SQL incorreta (coluna "none"):
 DE: sql += "select none from usuarios ";
-
 PARA: sql += "select nome from usuarios ";
 
 Provavelmente ocorreu um erro de digitação, pois none não é uma coluna. O correto seria "nome".
@@ -17,7 +16,6 @@ Provavelmente ocorreu um erro de digitação, pois none não é uma coluna. O co
 3 - Concatenação insegura de strings para SQL:
 DE: sql += "where login = " + " ' " + login + " ' ";
 sql += " and senha = " + " ' " + senha + " '; ";
-
 PARA: String sql = "SELECT nome FROM usuarios WHERE login = ? AND senha = ?";
 PreparedStatement st = conn.prepareStatement(sql);
 st.setString(1, login);
@@ -48,8 +46,6 @@ public boolean verificarUsuario(String login, String senha) {
     return result;
 }
 
-
-!
 Os recursos Connection, Statement e ResultSet devem ser fechados para evitar vazamento de recursos.
 
 5 - Adicionei e.printStackTrace(); dentro dos blocos catch para permitir a saída de mensagens de erro.
