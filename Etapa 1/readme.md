@@ -1,6 +1,6 @@
-#ETAPA 1
+# ETAPA 1
 
-##Dentro do seu repositório, crie um Readme explicando os erros encontrados;
+## Dentro do seu repositório, crie um Readme explicando os erros encontrados;
 
 =======
 
