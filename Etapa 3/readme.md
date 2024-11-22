@@ -12,7 +12,7 @@ Nós = 17
 Arestas = 16
 Componentes Conectados = 1
 
---- 
+---
 
 Substituindo os valores:
 
