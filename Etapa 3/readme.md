@@ -5,7 +5,7 @@
 
 # Complexidade Ciclomática
 
-- Fórmula da Complexidade Ciclomática: M = E - N + 2P
+- **Fórmula da Complexidade Ciclomática: M = E - N + 2P**
 
 - Cálculo da Complexidade Ciclomática:
 - Nós = 17
