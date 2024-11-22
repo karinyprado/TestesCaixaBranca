@@ -1,0 +1,73 @@
+package login;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/**
+ * Classe responsável pela funcionalidade de login e autenticação de usuários em um sistema.
+ * 
+ * Esta classe utiliza JDBC para conexão com o banco de dados MySQL, executando consultas
+ * para verificar credenciais e obter o nome do usuário autenticado.
+ */
+public class login {
+
+    /**
+     * Método responsável por estabelecer a conexão com o banco de dados MySQL.
+     * 
+     * @return Um objeto Connection que representa a conexão com o banco de dados.
+     */
+    public Connection conectarBD() {
+        Connection conn = null;
+        try {
+            // Carrega o driver do MySQL e inicializa uma instância.
+            Class.forName("com.mysql.Driver.Manager").newInstance();
+            // URL de conexão com o banco, incluindo credenciais.
+            String url = "jdbc:mysql://127.0.0.1/test?user=lopes&password=123";
+            conn = DriverManager.getConnection(url);
+        } catch (Exception e) {
+            // Log ou tratamento de erro pode ser adicionado aqui.
+        }
+        return conn; 
+    }
+
+    /** Nome do usuário autenticado. */
+    public String nome = "";
+
+    /** Resultado da verificação de login (true para sucesso, false para falha). */
+    public boolean result = false;
+
+    /**
+     * Método responsável por verificar as credenciais do usuário no banco de dados.
+     * 
+     * @param login Login do usuário.
+     * @param senha Senha do usuário.
+     * @return Retorna true se o usuário for autenticado com sucesso, ou false caso contrário.
+     */
+    public boolean verificarUsuario(String login, String senha) {
+        String sql = "";
+        Connection conn = conectarBD();
+
+        // Construção da instrução SQL para validar o login e a senha.
+        sql += "select nome from usuarios ";
+        sql += "where login = " + " '" + login + "' ";
+        sql += "and senha = " + " '" + senha + "';";
+
+        try {
+            // Criação de um objeto Statement para executar a consulta SQL.
+            Statement st = conn.createStatement();
+            // Execução da consulta e armazenamento do resultado.
+            ResultSet rs = st.executeQuery(sql);
+
+            // Verifica se o resultado possui registros (usuário encontrado).
+            if (rs.next()) {
+                result = true;
+                nome = rs.getString("nome"); // Obtém o nome do usuário autenticado.
+            }
+        } catch (Exception e) {
+            // Log ou tratamento de erro pode ser adicionado aqui.
+        }
+        return result;
+    }
+} // Fim da classe
